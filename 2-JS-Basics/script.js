@@ -184,7 +184,7 @@ yearsUntilRetirement("John", 1990);
 yearsUntilRetirement("Mike", 1969);
 yearsUntilRetirement("Mary", 1948);
 
-*/
+
 
 var names = ["John", "Jane", "Mark"];
 var years = new Array(1990, 1969, 1948);
@@ -206,3 +206,120 @@ john.indexOf("teacher"); // Retorna a posição de um valor dentro do array
 if (john.indexOf("teacher") === -1) {
   console.log("John is NOT a teacher");
 }
+
+
+
+var john = {
+  name: "John",
+  lastName: "Smith",
+  yearOfBirth: 1990,
+  job: "teacher",
+  isMarried: false,
+};
+
+console.log(john.lastName);
+console.log(john["lastName"]);
+
+var xyz = "job";
+console.log(john[xyz]);
+
+john.lastName = "Miller";
+john["job"] = "programmer";
+
+console.log(john);
+
+var jane = new Object();
+jane.name = "Jane";
+(jane.lastName = "Smith"), (jane["yearOfBirth"] = 1969);
+jane["job"] = "retired";
+jane["isMarried"] = true;
+
+console.log(jane);
+
+
+var john = {
+  name: "John",
+  lastName: "Smith",
+  yearOfBirth: 1990,
+  job: "teacher",
+  isMarried: false,
+  family: ["Jane", "Mark", "Bob"],
+  calculateAge: function (yearOfBirth) {
+    var age = 2021 - this.yearOfBirth;
+    return age;
+  },
+};
+
+console.log(john.calculateAge());
+
+var age = john.calculateAge();
+john.age = age;
+
+console.log(john);
+
+var mike = {
+  yearOfBirth: 1990,
+  calculateAge: function (yearOfBirth) {
+    var age = 2021 - this.yearOfBirth;
+    return age;
+  },
+};
+
+john.calculateAge();
+console.log(mike);
+*/
+
+// for (var i = 0; i < 10; i++) {
+//   console.log(i);
+// }
+
+// var names = ["John", "Jane", "Mary", "Mark", "Bob"];
+
+// for (var i = 0; i < names.length; i++) {
+//   // console.log(names[i]);
+// }
+
+// for (var i = names.length - 1; i > 0; i--) {
+//   console.log(names[i]);
+// }
+
+// while loops
+// var i = 0;
+// while (i < names.length) {
+//   console.log(names[i]);
+//   i++;
+// }
+
+// for (var i = 0; i <= 5; i++) {
+//   console.log(i);
+
+//   if (i === 3) {
+//     break;
+//   }
+// }
+
+function printFullAge(years) {
+  var ages = [];
+  var fullAges = [];
+
+  for (var i = 0; i < years.length; i++) {
+    ages[i] = 2021 - years[i];
+  }
+
+  for (var i = 0; i < ages.length; i++) {
+    if (ages[i] >= 18) {
+      console.log(
+        "Person is " + i + " " + ages[i] + " years old, and is of full page."
+      );
+      fullAges.push(true);
+    } else {
+      console.log("Person is " + i + " " + ages[i] + " years old, ");
+      fullAges.push(false);
+    }
+  }
+  return fullAges;
+}
+
+var years = [2001, 1985, 1994, 2014, 1973];
+var full_1 = printFullAge(years);
+var full_1 = printFullAge([2002, 2005, 2007]);
