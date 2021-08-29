@@ -95,6 +95,8 @@ if (23 == "23") {
 
 */
 
+/*
+
 var age = 25;
 
 if (age < 20) {
@@ -122,4 +124,85 @@ switch (job) {
   default:
     console.log("John does something else.");
     break;
+}
+
+
+
+var heightJohn = 172;
+var heightMike = 165;
+var ageJohn = 26;
+var ageMike = 29;
+
+var scoreJohn = heightJohn + 5 * ageJohn;
+var scoreMike = heightMike + 5 * ageMike;
+*/
+
+// if (scoreJohn > scoreMike) {
+//   console.log("John wins the game with" + scoreJohn + "points");
+// } else if (scoreMike > scoreJohn) {
+//   console.log("Mike wins the game with " + scoreMike + " points");
+// } else if (scoreJohn === scoreMike) {
+//   console.log("There is a draw..");
+// }
+
+// var heightMary = 158;
+// var ageMary = 31;
+// var scoreMary = heightMary + 5 * ageMary;
+
+// if (scoreJohn > scoreMike && scoreJohn > scoreMary) {
+//   console.log("John wins the game with " + scoreJohn + " points");
+// } else if (scoreMike > scoreJohn && scoreMike > scoreMary) {
+//   console.log("Mike wins the game with " + scoreMike + " points!");
+// } else if (scoreMary > scoreJohn && scoreMary > scoreMike) {
+//   console.log("Mary wins the game with " + scoreMary + " points");
+// } else {
+//   console.log("It's a draw.");
+// }
+
+/*
+function calculateAge(yearOfBirth) {
+  var age = 2021 - yearOfBirth;
+  return age;
+}
+
+var ageJohn = calculateAge(1990);
+var ageMike = calculateAge(1969);
+var ageMary = calculateAge(1948);
+
+function yearsUntilRetirement(name, year) {
+  var age = calculateAge(year);
+  var retirement = 65 - age;
+
+  if (retirement >= 0) {
+    console.log(name + " retires in " + retirement + " years");
+  } else {
+    console.log(name + "is already retired");
+  }
+}
+
+yearsUntilRetirement("John", 1990);
+yearsUntilRetirement("Mike", 1969);
+yearsUntilRetirement("Mary", 1948);
+
+*/
+
+var names = ["John", "Jane", "Mark"];
+var years = new Array(1990, 1969, 1948);
+
+console.log(names[2]);
+names[1] = "Bean";
+console.log(names);
+
+var john = ["John", "Smith", 1990, "teacher", false];
+
+john.push("blue"); // Adiciona um valor no array
+john.unshift("Mr. "); // adiciona um valor no array na primeira posição;
+john.pop(); // Elimina o último valor do array;
+john.shift(); // Elimna o primeiro valor do array;
+console.log(john);
+
+john.indexOf("teacher"); // Retorna a posição de um valor dentro do array
+
+if (john.indexOf("teacher") === -1) {
+  console.log("John is NOT a teacher");
 }
