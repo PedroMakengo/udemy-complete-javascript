@@ -253,32 +253,58 @@
 
 // var emilyFormal = john.presentation.bind(emily, "formal");
 
-function Question(question, answers, correct) {
-  this.question = question;
-  this.answers = answers;
-  this.correct = correct;
-}
+(function () {
+  function Question(question, answers, correct) {
+    this.question = question;
+    this.answers = answers;
+    this.correct = correct;
+  }
 
-var q1 = new Question(
-  "Is Javascript the coolest programming language in the world?",
-  ["Yes", "No"],
-  0
-);
+  Question.prototype.displayQuestion = () => {
+    console.log(this.question);
 
-var q2 = new Question(
-  "What is the name of this course's teacher ?",
-  ["John", "Micheal", "Jonas", ,],
-  2
-);
+    for (var i = 0; i < this.answers.length; i++) {}
+  };
 
-var q3 = new Question(
-  "What does best describe coding?",
-  ["Boring", "Hard", "Fun", "Tediuos"],
-  2
-);
+  Question.prototype.checkAnswer = function (ans) {
+    if (ans === this.correct) {
+      console.log("Correct answer!");
+    } else {
+      console.log("Wrong answer Try again :)");
+    }
+  };
 
-var questions = [q1, q2, q3];
+  var q1 = new Question(
+    "Is Javascript the coolest programming language in the world?",
+    ["Yes", "No"],
+    0
+  );
 
-var n = Math.floor(Math.random() * questions.length);
+  var q2 = new Question(
+    "What is the name of this course's teacher ?",
+    ["John", "Micheal", "Jonas", ,],
+    2
+  );
 
-questions[n];
+  var q3 = new Question(
+    "What does best describe coding?",
+    ["Boring", "Hard", "Fun", "Tediuos"],
+    2
+  );
+
+  function nextQuestion() {
+    var questions = [q1, q2, q3];
+
+    var n = Math.floor(Math.random() * questions.length);
+
+    questions[n];
+
+    var answer = parseInt(prompt("Please select the correct answer"));
+
+    if (answer !== "exit") {
+      questions[n].checkAnswer(parseInt(answer));
+      nextQuestion();
+    }
+  }
+  nextQuestion();
+})();
