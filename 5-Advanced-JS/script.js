@@ -120,30 +120,165 @@
 // console.log(isFullAge);
 // console.log(rates);
 
-function interviewQuestion(job) {
-  if (job === "designer") {
-    return function (name) {
-      console.log(name + ", can you please explain waht UX design is ? ");
-    };
-  } else if (job === "teacher") {
-    return function (name) {
-      console.log("What subject do yo teacher, " + name + "?");
-    };
-  } else {
-    return function (name) {
-      console.log("Hello" + name + ", what do you do?");
-    };
-  }
+// function interviewQuestion(job) {
+//   if (job === "designer") {
+//     return function (name) {
+//       console.log(name + ", can you please explain waht UX design is ? ");
+//     };
+//   } else if (job === "teacher") {
+//     return function (name) {
+//       console.log("What subject do yo teacher, " + name + "?");
+//     };
+//   } else {
+//     return function (name) {
+//       console.log("Hello" + name + ", what do you do?");
+//     };
+//   }
+// }
+
+// var teacherQuestion = interviewQuestion("teacher");
+
+// var designerQuestion = interviewQuestion("designer");
+
+// teacherQuestion("John");
+// designerQuestion("John");
+// designerQuestion("Jane");
+// designerQuestion("Mark");
+// designerQuestion("Mike");
+
+// interviewQuestion("teacher")("Mark");
+
+// ////////////////////////////
+// Lecture LIFE
+
+// function game() {
+//   var score = Math.random() * 10;
+//   console.log(score >= 5);
+// }
+
+// // game();
+// (function () {
+//   var score = Math.random() * 10;
+//   console.log(score >= 5);
+// })();
+
+// (function (goodLuck) {
+//   var score = Math.random() * 10;
+//   console.log(score >= 5 - goodLuck);
+// })(5);
+
+// //////////////////////////////////
+//  Lecture: Closures
+
+// function retirement(retirementAge) {
+//   return function (yearOfBirth) {
+//     var a = " years left until retirement.";
+//     var age = 2021 - yearOfBirth;
+//     var total = retirementAge - age;
+//     console.log(total + a);
+//   };
+// }
+
+// var retirementUS = retirement(66);
+
+// var retirementGermany = retirement(65);
+
+// var retirementIceland = retirement(67);
+
+// retirementGermany(1990);
+// retirementUS(1990);
+// retirementIceland(1990);
+
+// function interviewQuestion(job) {
+//   return function (name) {
+//     if (job === "designer") {
+//       console.log(name + " , can you please explain what UX Designer ?");
+//     } else if (job === "teacher") {
+//       console.log("What subject do you teach, " + name + "?");
+//     } else {
+//       console.log("Hello " + name + ", what do you do?");
+//     }
+//   };
+// }
+
+// interviewQuestion("teacher")("john");
+
+// var john = {
+//   name: "John",
+//   age: 26,
+//   job: "teacher",
+//   presentation: function (style, timeOfDay) {
+//     if (style === "formal") {
+//       console.log(
+//         "Good " +
+//           timeOfDay +
+//           ", Ladies and gentLement I'm " +
+//           this.name +
+//           " I'm a" +
+//           this.job +
+//           " and I'm " +
+//           this.age +
+//           " years old."
+//       );
+//     } else if (style === "friendly") {
+//       console.log(
+//         "Hey! What's up? I'm " +
+//           this.name +
+//           ", I'm a " +
+//           this.job +
+//           " I'm " +
+//           this.age +
+//           " years old "
+//       );
+//     }
+//   },
+// };
+
+// var emily = {
+//   name: "Emily",
+//   age: 35,
+//   job: "designer",
+// };
+
+// john.presentation("formal", "morning");
+
+// john.presentation.call(emily, "friendly", "afternoon");
+
+// john.presentation.apply(emily, ["friendly", "afternoon"]);
+
+// var johnFriendly = john.presentation.bind(john, "friendly");
+
+// johnFriendly("morning");
+// johnFriendly("night");
+
+// var emilyFormal = john.presentation.bind(emily, "formal");
+
+function Question(question, answers, correct) {
+  this.question = question;
+  this.answers = answers;
+  this.correct = correct;
 }
 
-var teacherQuestion = interviewQuestion("teacher");
+var q1 = new Question(
+  "Is Javascript the coolest programming language in the world?",
+  ["Yes", "No"],
+  0
+);
 
-var designerQuestion = interviewQuestion("designer");
+var q2 = new Question(
+  "What is the name of this course's teacher ?",
+  ["John", "Micheal", "Jonas", ,],
+  2
+);
 
-teacherQuestion("John");
-designerQuestion("John");
-designerQuestion("Jane");
-designerQuestion("Mark");
-designerQuestion("Mike");
+var q3 = new Question(
+  "What does best describe coding?",
+  ["Boring", "Hard", "Fun", "Tediuos"],
+  2
+);
 
-interviewQuestion("teacher")("Mark");
+var questions = [q1, q2, q3];
+
+var n = Math.floor(Math.random() * questions.length);
+
+questions[n];
