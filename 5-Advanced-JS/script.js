@@ -291,7 +291,7 @@
 
   var q2 = new Question(
     "What is the name of this course's teacher ?",
-    ["John", "Micheal", "Jonas", ,],
+    ["John", "Micheal", "Jonas"],
     2
   );
 
